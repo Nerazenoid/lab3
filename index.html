@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script>
+            //1 задание. Номер максимального по модулю элемента массива
+            var masseffect = [];
+            var max = 0;
+            var n = prompt("Введите число элементов в массиве");
+            for(i = 0; i<n;i++){
+                masseffect[i]= prompt("Введите элемент массива");
+            }
+            for (i = 0; i<n;i++){
+                if(Math.abs(masseffect[i])>Math.abs(masseffect[max])){
+                    max = i;
+                }
+            }
+            alert("Индекс максимального по модулю элемента массива - "+ max);
+            //2 часть. Сумма элементов массива, расположенных после первого положительного элемента
+            var plus = false;
+            var sum = 0;
+            for(i = 0;i<n;i++){
+                if(plus == true){
+                    sum+= Number(masseffect[i]);
+                }
+                else{
+                    if(masseffect[i]>0)
+                    plus = true;
+                }
+            }
+            alert("Сумма элементов расположенных ПОСЛЕ первого положительного элемента - " + sum);
+            //3 часть. Преобразовать массив таким образом, чтобы сначала располагались все элементы, целая часть которых
+            //лежит в интервале [a,b], а потом - все остальные
+            var a = prompt("Введите верхнюю границу диапазона");
+            var b = prompt("Введите нижнюю границу диапазона");
+            alert("Массив до сортировки - " + masseffect);
+            zapi=[];
+            j=0;
+            for (i = 0;i<n;i++){
+                if(masseffect[i]>=a&&masseffect[i]<=b){
+                    masseffect[j]=masseffect[i];
+                    j++;
+                }
+                else{
+                    zapi[j-i]=masseffect[i];
+                }
+            }
+            for(i=0;i<zapi.length;i++){
+                masseffect[j+i]=zapi[i];
+            }
+            alert("Массив после сортировки - " + masseffect);
+
+        </script>
+    </head>
+<body>
+
+</body>
+</html>
